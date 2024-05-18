@@ -57,12 +57,22 @@ graph LR
 	sudo smbpasswd -a nas1 # enter: chlamy
 	```
 
-7. Restart samba service to load the configuration file
+7. 
+	```bash
+	sudo chmod 0777 /home/trappyscope/flagella
+	sudo chown nobody:nogroup /home/trappyscope/flagella
+	sudo chmod 0777 /media/trappyscope/TrappyCloud
+	sudo chown nobody:nogroup /media/trappyscope/TrappyCloud
+	```
+
+8. 
+
+9. Restart samba service to load the configuration file
 	```bash
 	sudo systemctl restart smbd
 	```
 
-8. 
+10. 
 
 
 
