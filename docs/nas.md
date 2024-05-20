@@ -113,6 +113,24 @@ graph LR
 	public = yes
 	```
 
+11. ## Finally
+
+	```toml
+	[global]
+	  workgroup = MyWorkGroup
+	  server string = Hello, use me
+	  security = user
+	  map to guest = Bad User
+	  guest account = jonnie
+	  passdb backend = tdbsam
+	  
+	[the_public_share]
+	   path = /mysmbshare
+	   writable = yes
+	   printable = no
+	   public = yes
+	```
+
 	
 
 
