@@ -75,18 +75,42 @@ graph LR
 10. Try this:
 	```toml
 	[global]
-	   map to guest = Bad User
-	   guest account = nobody
-	   dns proxy = no
+	  server string = YOURSERVERNAME
+	  workgroup = WORKGROUP
+	  netbios name = %h
+	  security = share
+	  guest account = root
+	  socket options = TCP_NODELAY IPTOS_LOWDELAY SO_RCVBUF=65536 SO_SNDBUF=65536
+	  smb ports = 445
+	  max protocol = SMB2
+	  min receivefile size = 16384
+	  deadtime = 30
+	  os level = 20
+	  mangled names = no
+	  syslog only = yes
+	  syslog = 2
+	  name resolve order = lmhosts wins bcast host
+	  preferred master = auto
+	  domain master = auto
+	  local master = yes
+	  printcap name = /dev/null
+	  load printers = no
+	  browseable = yes
+	  writeable = yes
+	  printable = no
+	  encrypt passwords = true
+	  enable core files = no
+	  passdb backend = smbpasswd
+	  smb encrypt = disabled
+	  use sendfile = yes
 	
-	[Shared]
-	   path = /path/to/shared/folder
-	   browsable = yes
-	   writable = yes
-	   guest ok = yes
-	   guest only = yes
-	   force user = nobody
-	
+	[share]
+	comment = Share
+	path = /share
+	available = yes
+	browsable = yes
+	writable = yes
+	public = yes
 	```
 
 	
