@@ -72,7 +72,24 @@ graph LR
 	sudo systemctl restart smbd
 	```
 
-10. 
+10. Try this:
+	```toml
+	[global]
+	   map to guest = Bad User
+	   guest account = nobody
+	   dns proxy = no
+	
+	[Shared]
+	   path = /path/to/shared/folder
+	   browsable = yes
+	   writable = yes
+	   guest ok = yes
+	   guest only = yes
+	   force user = nobody
+	
+	```
+
+	
 
 
 
