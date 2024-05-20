@@ -28,6 +28,7 @@ graph LR
 
 	```bash
 	sudo apt-get install samba samba-common-bin
+	reboot
 	```
 
 4. Verify that the shared folders exist - `./flagella/` and `./cillia`:
@@ -131,7 +132,51 @@ graph LR
 	   public = yes
 	```
 
-	
+​	
+
+```bash
+[global]
+  workgroup = WORKGROUP
+  netbios name = HOMESERV
+  security = user
+  map to guest = Bad User
+
+[disk1]
+  comment = Disk 1 on 400GB HDD
+  path = /media/disk1
+  browsable = yes
+  guest ok = yes
+  read only = no
+  create mask = 666
+  directory mask = 777
+  force user = jonnie
+  force group = jonnie
+
+[disk2]
+  comment = Disk 2 on 400GB HDD
+  path = /media/disk2
+  browsable = yes
+  guest ok = yes
+  read only = no
+  create mask = 666
+  directory mask = 777
+  force user = jonnie
+  force group = jonnie
+```
+
+
+
+### Extras
+
+1. To reset to default: a completw purge is recommended:
+
+	```bash
+	sudo apt-get purge samba samba-common
+	sudo rm -rf /etc/samba/ /etc/default/samba
+	sudo apt-get install samba
+	```
+
+2. 
 
 
 
